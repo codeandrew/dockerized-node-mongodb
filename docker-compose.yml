@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+
+  mongo:
+      image: mongo
+      volumes:
+        - ~/Mongo/data/petpal:/data/db
+      ports:
+        - "27017:27017"
+      links:
+        - node
+
+  node:
+      build: ./node
+      volumes:
+        - ./node:/src
+      ports:
+        - "3000:3000"
