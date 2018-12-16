@@ -1,6 +1,11 @@
 # Dockerized NodeJs and MongoDB
 > Dockerized node.js, express and mongodn using alpine linux
 
+## For less pain in the ass setup
+```
+./setup.sh
+```
+
 ## Setup
 > If you are in mac MongoDB volumes must be created outside the
 > User Directory
