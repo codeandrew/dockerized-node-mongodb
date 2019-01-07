@@ -58,5 +58,23 @@ router.get('/get', (req, res, next) => {
 	})
 })
 
+router.get('/get/user_id/:id', (req, res, next) => {
+	client.connect(uri, (err, db) => {
+		if (err) throw err
+		const dbo = db.db()
+		const id = { user_id :req.params.id }
+		try {
+			dbo.collection('questions').find(id).toArray((err, result) =>{
+				if (err) throw err
+				res.json(result)
+				db.close()
+			})
+		}
+		catch(error){
+			console.error(error)
+		}
+	})
+})
+
 
 module.exports = router;
